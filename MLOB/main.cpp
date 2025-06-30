@@ -1,4 +1,5 @@
 #include "Book.h"
+#include "Profiler.h"
 
 #include <iostream>
 #include <iomanip>
@@ -60,13 +61,15 @@ int main()
     std::cout << "After adding 3 asks:\n";
     printBook(mlob);
 
-    std::cout << "-- Limit BUY#1000 6 @103 --\n";
+    std::cout << "-- Limit BUY(Order #1000), 6 units @103 --\n";
     mlob.matchOrder(1000, Side::Bid, 103, 6);
     printBook(mlob);
 
-    std::cout << "-- Limit SELL#2000 4 @99 --\n";
+    std::cout << "-- Limit SELL(Order #2000{), 4 units @99 --\n";
     mlob.matchOrder(2000, Side::Ask, 99, 4);
     printBook(mlob);
+
+	Profiler::report();
 
 	return 0;
 }

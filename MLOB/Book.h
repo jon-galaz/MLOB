@@ -23,6 +23,8 @@ struct Book
 	std::vector<Order> d_asks;
 	std::unordered_map<OrderId, std::pair<Side, size_t>> d_index;
 
+	Book();
+
 	void addOrder(const OrderId orderId, const Side side, const Price price, const Volume volume );
 	void modifyOrder(OrderId orderId, Volume volume);
 	void deleteOrder(OrderId orderId);
